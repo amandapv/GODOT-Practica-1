@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5fhjhofyypbs"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_h36t6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_683ip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhlmo"]
+albedo_color = Color(0.505882, 0.635294, 0.862745, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lo2xa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nb7qh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwejp"]
+albedo_color = Color(0.619608, 0.615686, 0.905882, 1)
+emission_enabled = true
+emission = Color(0.639216, 0.0745098, 0.231373, 1)
+emission_energy_multiplier = 9.6
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_h36t6")
+
+[node name="Cuerpo" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_683ip")
+surface_material_override/0 = SubResource("StandardMaterial3D_hhlmo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_lo2xa")
+
+[node name="Ojos" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.305926, 0, 0, 0, 0.292076, 0, 0, 0, 0.554925, 0.465054, 0.466035, 0.0156285)
+mesh = SubResource("BoxMesh_nb7qh")
+surface_material_override/0 = SubResource("StandardMaterial3D_nwejp")
